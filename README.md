@@ -3,13 +3,11 @@ Simple console app to apply filters on your .bmp images
 
 How to use:
 
-`
-% mkdir build && cd build
+`% mkdir build && cd build`
+`%cmake ..`
 
-% cmake ..
+`% make image_processor`
 
-% make image_processor
-
-% ./image_processor`
+`% ./image_processor`
 
 Than follow instructions
