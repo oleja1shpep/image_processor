@@ -5,7 +5,7 @@ How to use:
 
 `% mkdir build && cd build`
 
-`%cmake ..`
+`% cmake ..`
 
 `% make image_processor`
 
