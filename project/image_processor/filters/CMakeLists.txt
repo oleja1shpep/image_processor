@@ -1,0 +1,1 @@
+add_library(filters negative.cpp grayscale.cpp crop.cpp sharp.cpp matrix_filter.cpp edge.cpp gauss.cpp vignette.cpp)

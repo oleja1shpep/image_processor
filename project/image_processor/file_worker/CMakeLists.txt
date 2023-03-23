@@ -1,0 +1,1 @@
+add_library(file_worker file_worker.cpp)
