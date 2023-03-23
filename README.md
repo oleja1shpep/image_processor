@@ -1,5 +1,4 @@
-How to:
-
+How to use:
 
 % mkdir build && cd build
 
@@ -9,5 +8,4 @@ How to:
 
 % ./image_processor
 
-
-Follow next instructions
+Than follow instructions
