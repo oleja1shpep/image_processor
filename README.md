@@ -1,4 +1,4 @@
-##Simple console app to apply filters on your .bmp images
+## Simple console app to apply filters on your .bmp images
 
 
 ## How to start using:
@@ -15,7 +15,7 @@ Go to `/image_processor` directory in terminal and write these commands:
 
 Than follow instructions
 
-##How to use:
+## How to use:
 
 Go to `/image_processor/build` directory in terminal and write this command:
 
@@ -23,7 +23,7 @@ Go to `/image_processor/build` directory in terminal and write this command:
 
 Than follow instructions
 
-##How to use after changing code:
+## How to use after changing code:
 
 Go to `/image_processor/build` directory in terminal and write these commands:
 
