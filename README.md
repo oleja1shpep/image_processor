@@ -35,7 +35,7 @@ Than follow instructions
 
 ## Unit Tests
 
-If you want to run unit tests you need to write:
+If you want to run unit tests you need to go to `/image_processor/build` directory in terminal and write:
 
 `% make unit_tests`
 
