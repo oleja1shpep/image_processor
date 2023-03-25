@@ -32,3 +32,13 @@ Go to `/image_processor/build` directory in terminal and write these commands:
 `% ./image_processor`
 
 Than follow instructions
+
+## Unit Tests
+
+If you want to run unit tests you need to write:
+
+`% make unit_tests`
+
+`% ./unit_tests`
+
+
