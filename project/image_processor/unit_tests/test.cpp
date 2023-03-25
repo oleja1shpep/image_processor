@@ -7,6 +7,7 @@
 #include "../filters/gauss.h"
 #include "../filters/vignette.h"
 #include <iostream>
+#include <cstdio>
 
 const std::string FLAG_PATH = "../project/image_processor/unit_tests/data/flag.bmp";
 const std::string LENNA_PATH = "../project/image_processor/unit_tests/data/lenna.bmp";
@@ -283,8 +284,10 @@ int main() {
         const int padding = static_cast<int>((4 - ((static_cast<int64_t>(image.GetWidth()) * 3) % 4)) % 4);
         image.WriteFileSize(FILE_HEADER_SIZE + INFO_HEADER_SIZE + image.GetWidth() * image.GetHeight() * 3 +
                             padding * image.GetHeight());
-        file_worker.ExportIMG(image, "output.bmp");
-        Image control_image = file_worker.ReadIMG("output.bmp");
+        file_worker.ExportIMG(image, "output_test.bmp");
+        Image control_image = file_worker.ReadIMG("output_test.bmp");
+
+        remove("output_test.bmp");
         assert(control_image == image);
     }
 
@@ -292,8 +295,10 @@ int main() {
 
     {
         Image image = file_worker.ReadIMG(FLAG_PATH);
-        file_worker.ExportIMG(image, "output.bmp");
-        Image control_image = file_worker.ReadIMG("output.bmp");
+        file_worker.ExportIMG(image, "output_test.bmp");
+        Image control_image = file_worker.ReadIMG("output_test.bmp");
+
+        remove("output_test.bmp");
         assert(image == control_image);
     }
 
