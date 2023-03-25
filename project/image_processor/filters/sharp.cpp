@@ -7,7 +7,7 @@ SharpFilter::SharpFilter() {
 }
 
 Image& SharpFilter::Apply(Image& image) const {
-    std::cout << "applying -sharp filter..." << std::endl;
+    std::cout << "\x1b[37mApplying \x1b[36m-sharp\x1b[37m filter..." << std::endl;
     ApplyMatrixFilter(image, sharp_matrix_);
 
     for (size_t y = 0; y < image.GetHeight(); ++y) {
@@ -19,7 +19,7 @@ Image& SharpFilter::Apply(Image& image) const {
         }
     }
 
-    std::cout << "-sharp filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-sharp\x1b[37m filter has been successfully applied" << std::endl;
 
     return image;
 }

@@ -1,7 +1,7 @@
 #include "grayscale.h"
 
 Image& GrayFilter::Apply(Image& image) const {
-    std::cout << "applying -gs filter..." << std::endl;
+    std::cout << "\x1b[37mApplying \x1b[36m-gs\x1b[37m filter..." << std::endl;
 
     for (size_t y = 0; y < image.GetHeight(); ++y) {
         for (size_t x = 0; x < image.GetWidth(); ++x) {
@@ -11,6 +11,6 @@ Image& GrayFilter::Apply(Image& image) const {
             image.WritePixelMatrixCords(x, y, Color(gray_color, gray_color, gray_color));
         }
     }
-    std::cout << "-gs filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-gs\x1b[37m filter has been successfully applied" << std::endl;
     return image;
 }

@@ -5,7 +5,7 @@ EdgeFilter::EdgeFilter() {
 }
 
 Image& EdgeFilter::Apply(Image& image, const float threshold) const {
-    std::cout << "applying -edge filter..." << std::endl;
+    std::cout << "\x1b[37mApplying \x1b[36m-edge\x1b[37m filter..." << std::endl;
     GrayFilter::Apply(image);
 
     ApplyMatrixFilter(image, edge_matrix_);
@@ -24,6 +24,6 @@ Image& EdgeFilter::Apply(Image& image, const float threshold) const {
         }
     }
 
-    std::cout << "-edge filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-edge\x1b[37m filter has been successfully applied" << std::endl;
     return image;
 }

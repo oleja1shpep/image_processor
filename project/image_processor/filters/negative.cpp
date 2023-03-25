@@ -1,7 +1,7 @@
 #include "negative.h"
 
 Image& NegativeFilter::Apply(Image& image) {
-    std::cout << "applying -neg filter..." << std::endl;
+    std::cout << "\x1b[37mApplying \x1b[36m-neg\x1b[37m filter..." << std::endl;
 
     for (size_t y = 0; y < image.GetHeight(); ++y) {
         for (size_t x = 0; x < image.GetWidth(); ++x) {
@@ -10,6 +10,6 @@ Image& NegativeFilter::Apply(Image& image) {
             image.WritePixelMatrixCords(x, y, color);
         }
     }
-    std::cout << "-neg filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-neg\x1b[37m filter has been successfully applied" << std::endl;
     return image;
 }

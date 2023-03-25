@@ -7,9 +7,9 @@ const double PI = acos(-1.0);
 }  // namespace
 
 Image& GaussFilter::Apply(Image& image, const float sigma) {
-    std::cout << "applying -blur filter..." << std::endl;
+    std::cout << "\x1b[37mApplying \x1b[36m-blur\x1b[37m filter..." << std::endl;
     if (sigma < 0.0f) {
-        std::cout << "sigma is less than 0" << std::endl;
+        std::cout << "\x1b[31mSigma is less than 0" << std::endl;
         return image;
     }
 
@@ -98,6 +98,6 @@ Image& GaussFilter::Apply(Image& image, const float sigma) {
 
     image.MovePixelMatrix(very_new_pixel_matrix);
 
-    std::cout << "-blur filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-blur\x1b[37m filter has been successfully applied" << std::endl;
     return image;
 }

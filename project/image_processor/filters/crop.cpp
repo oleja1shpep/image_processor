@@ -4,7 +4,7 @@ CropFilter::CropFilter(const size_t w, const size_t h) : crop_width_(w), crop_he
 }
 
 Image& CropFilter::Apply(Image& image) const {
-    std::cout << "applying -crop filter..." << std::endl;
+    std::cout << "\x1b[37mApplying -crop filter..." << std::endl;
     size_t applied_height = std::min<size_t>(crop_height_, image.GetHeight());
     size_t applied_width = std::min<size_t>(crop_width_, image.GetWidth());
 
@@ -27,6 +27,6 @@ Image& CropFilter::Apply(Image& image) const {
     const int padding_amount = static_cast<int>((4 - ((applied_width * 3) % 4)) % 4);
     image.WriteFileSize(FILE_HEADER_SIZE + INFO_HEADER_SIZE + applied_width * applied_height * 3 +
                         padding_amount * applied_height);
-    std::cout << "-crop filter has been successfully applied" << std::endl;
+    std::cout << "\x1b[36m-crop\x1b[37m filter has been successfully applied" << std::endl;
     return image;
 }

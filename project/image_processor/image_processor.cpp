@@ -63,7 +63,7 @@ int main(int argc, char** argv) {
     }
 
     if (argc == 2) {
-        std::cout << "Please, give output file" << std::endl;
+        std::cout << "\x1b[31mPlease, give output file" << std::endl;
         return 0;
     }
 
@@ -71,30 +71,30 @@ int main(int argc, char** argv) {
     const auto output = static_cast<std::string>(argv[2]);
 
     if (".bmp" != input.substr(input.size() - 4, 4)) {
-        std::cout << "Format of your input file is not .bmp, cannot read file" << std::endl;
+        std::cout << "\x1b[31mFormat of your input file is not .bmp, cannot read file" << std::endl;
         return 0;
     }
 
     if (".bmp" != output.substr(output.size() - 4, 4)) {
-        std::cout << "Format of your output file is not .bmp, cannot write file" << std::endl;
+        std::cout << "\x1b[31mFormat of your output file is not .bmp, cannot write file" << std::endl;
         return 0;
     }
 
     FileWorker file_worker;
     Image image = file_worker.ReadIMG(input);
     if (image.GetFileSize() == 0) {
-        std::cout << "Size of your file is 0 (Zero), something went wrong :(" << std::endl;
+        std::cout << "\x1b[31mSize of your file is 0 (Zero), something went wrong :(" << std::endl;
         return 0;
     }
     for (size_t i = 3; i < argc; ++i) {
         auto filter = static_cast<std::string>(argv[i]);
         if (filter[0] != '-') {
-            std::cout << "this is not a filter: " << filter << ". Maybe you mean -" << filter << "?" << std::endl;
+            std::cout << "\x1b[31mThis is not a filter: \x1b[36m" << filter << "\x1b[31m. Maybe you mean \x1b[36m-" << filter << "\x1b[31m? \x1b[0m" << std::endl;
             return 0;
         } else {
             if (filter == "-crop") {
                 if (argc - i <= 2) {
-                    std::cout << "please give parameters for -crop filter" << std::endl;
+                    std::cout << "\x1b[31mPlease give parameters for \x1b[36m-crop\x1b[31m filter\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
                 std::string height_string = static_cast<std::string>(argv[i + 2]);
 
                 if (!IsStringNumber(width_string) || !IsStringNumber(height_string)) {
-                    std::cout << "parameter is not a number" << std::endl;
+                    std::cout << "\x1b[31mParameter is not a number\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
                 i += 2;
 
                 if (width < 0 || height < 0) {
-                    std::cout << "parameter is not a positive integer" << std::endl;
+                    std::cout << "\x1b[31mParameter is not a positive integer\x1b[0m" << std::endl;
                     return 0;
                 }
                 CropFilter crop(width, height);
@@ -127,7 +127,7 @@ int main(int argc, char** argv) {
                 sharp.Apply(image);
             } else if (filter == "-edge") {
                 if (argc - i <= 1) {
-                    std::cout << "please give parameter for -edge filter" << std::endl;
+                    std::cout << "\x1b[31mPlease give parameter for \x1b[36m-edge\x1b[31m filter\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -135,7 +135,7 @@ int main(int argc, char** argv) {
                 i += 1;
 
                 if (!IsStringFloat(threshold_string)) {
-                    std::cout << "please give float number for -edge filter" << std::endl;
+                    std::cout << "\x1b[31mPlease give float number for \x1b[36m-edge\x1b[31m filter\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
                 edge.Apply(image, threshold);
             } else if (filter == "-vignette") {
                 if (argc - i <= 2) {
-                    std::cout << "please give 2 parameters for -vignette filter" << std::endl;
+                    std::cout << "\x1b[31mPlease give 2 parameters for \x1b[36m-vignette\x1b[31m filter\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -153,12 +153,12 @@ int main(int argc, char** argv) {
                 std::string power_string = static_cast<std::string>(argv[i + 2]);
                 i += 2;
                 if (!IsStringNumber(radius_string)) {
-                    std::cout << "parameter " << radius_string << " is not an integer" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << radius_string << "\x1b[31m is not an integer\x1b[0m" << std::endl;
                     return 0;
                 }
 
                 if (!IsStringFloat(power_string)) {
-                    std::cout << "parameter " << power_string << " is not a float number" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << power_string << "\x1b[31m is not a float number\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -166,17 +166,17 @@ int main(int argc, char** argv) {
                 float power = std::stof(power_string);
 
                 if (diameter <= 0) {
-                    std::cout << "parameter " << diameter << " is not a positive integer" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << diameter << "\x1b[31m is not a positive integer\x1b[0m" << std::endl;
                     return 0;
                 }
 
                 if (diameter >= std::max<size_t>(image.GetWidth(), image.GetHeight())) {
-                    std::cout << "parameter " << diameter << " is equal to or greater than image size" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << diameter << "\x1b[31m is equal to or greater than image size\x1b[0m" << std::endl;
                     return 0;
                 }
 
                 if (power < 0) {
-                    std::cout << "parameter " << power << " is less than 0" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << power << "\x1b[31m is less than 0\x1b[0m" << std::endl;
                     return 0;
                 }
 
@@ -185,7 +185,7 @@ int main(int argc, char** argv) {
 
             } else if (filter == "-blur") {
                 if (argc - i <= 1) {
-                    std::cout << "please give parameter for -blur filter" << std::endl;
+                    std::cout << "\x1b[31mPlease give parameter for \x1b[36m-blur\x1b[31m filter" << std::endl;
                     return 0;
                 }
 
@@ -193,7 +193,7 @@ int main(int argc, char** argv) {
                 i += 1;
 
                 if (!IsStringFloat(sigma_string)) {
-                    std::cout << "parameter " << sigma_string << " is not a float" << std::endl;
+                    std::cout << "\x1b[31mParameter \x1b[36m" << sigma_string << "\x1b[31m is not a float\x1b[30m" << std::endl;
                     return 0;
                 }
 
@@ -202,7 +202,7 @@ int main(int argc, char** argv) {
                 GaussFilter blur;
                 blur.Apply(image, sigma);
             } else {
-                std::cout << "no such filter " << filter << std::endl;
+                std::cout << "\x1b[31mNo such filter \x1b[36m" << filter << std::endl;
                 return 0;
             }
         }

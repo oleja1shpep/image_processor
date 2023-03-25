@@ -2,6 +2,7 @@
 #include <cmath>
 
 Image& VignetteFilter::Apply(Image& image, const int64_t diameter, const float power) const {
+    std::cout << "\x1b[37mApplying \x1b[36m-vignette\x1b[37m filter..." << std::endl;
     PixelMatrix new_pixel_matrix = image.GetPixelMatrix();
 
     size_t center_x = image.GetWidth() / 2;
@@ -32,6 +33,6 @@ Image& VignetteFilter::Apply(Image& image, const int64_t diameter, const float p
     }
 
     image.WritePixelMatrix(new_pixel_matrix);
-    std::cout << "vignette filter has been successfully applied!" << std::endl;
+    std::cout << "\x1b[36m-vignette\x1b[37m filter has been successfully applied!" << std::endl;
     return image;
 }

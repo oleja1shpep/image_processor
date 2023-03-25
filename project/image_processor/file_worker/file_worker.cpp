@@ -6,14 +6,14 @@ Image FileWorker::ReadIMG(const std::string &path) const {
     f.open(path, std::ios::in | std::ios::binary);
 
     if (!f.is_open()) {
-        std::cout << "Your file could not be open" << std::endl;
+        std::cout << "\x1b[31mYour file could not be open" << std::endl;
         return image;
     }
     unsigned char file_header[FILE_HEADER_SIZE];
     f.read(reinterpret_cast<char *>(file_header), FILE_HEADER_SIZE);
 
     if ((file_header[0] != 'B') || (file_header[1] != 'M')) {
-        std::cout << "Format of your input file is not .bmp, cannot open file(starts not with 'BM' )" << std::endl;
+        std::cout << "\x1b[31mFormat of your input file is not .bmp, cannot open file(starts not with 'BM' )" << std::endl;
         f.close();
         return image;
     }
@@ -61,7 +61,7 @@ Image FileWorker::ReadIMG(const std::string &path) const {
     }
 
     f.close();
-    std::cout << "Your file " << path << " has been successfully opened!" << std::endl;
+    std::cout << "\x1b[37mYour file \x1b[35m\"" << path << "\"\x1b[37m has been successfully opened!" << std::endl;
 
     return image;
 }
@@ -72,7 +72,7 @@ void FileWorker::ExportIMG(const Image &image, const std::string &path) const {
         f.open(path, std::ios::out | std::ios::binary);
 
         if (!f.is_open()) {
-            std::cout << "Your file could not be opened" << std::endl;
+            std::cout << "\x1b[31mYour file could not be opened" << std::endl;
             return;
         }
         unsigned char bmp_pad[3] = {0, 0, 0};
@@ -136,6 +136,6 @@ void FileWorker::ExportIMG(const Image &image, const std::string &path) const {
             f.write(reinterpret_cast<char *>(bmp_pad), padding_amount);
         }
         f.close();
-        std::cout << "Your file has been successfully saved to " << path << std::endl;
+        std::cout << "\x1b[37mYour file has been successfully saved to \x1b[35m\"" << path << "\"" <<  std::endl;
     }
 }
