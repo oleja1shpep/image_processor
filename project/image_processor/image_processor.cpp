@@ -40,23 +40,24 @@ bool IsStringFloat(std::string& string) {
 }
 
 int main(int argc, char** argv) {
+
     if (argc == 1) {
-        std::cout << "\n\nImage Processor\n\n"
-                     "Simple console app to apply filters on your photos\n"
-                     "<IMPORTANT: images should be 24-bit .bmp files>\n\n"
-                     "Usage:\n"
-                     "     ./image_processor input.bmp output.bmp -[filter1] {arg1_1} {agr1_2}...-[filter2] {arg2_1} {arg2_2} ...\n"
-                     "\nExample:\n"
-                     "     ./image_processor input.bmp output.bmp -gs -blur 4 -edge 0.1 -crop 1000 1000\n"
-                     "\n<IMPORTANT: you can use relative paths from /build or absolute paths>\n\n"
+        std::cout << "\x1b[35m\n\nImage Processor \x1b[0m \n"
+                     "\x1b[33m\nSimple console app to apply filters on your photos\x1b[0m"
+                     "\x1b[31m\n<IMPORTANT: images should be 24-bit .bmp files>\x1b[0m\n"
+                     "\x1b[33m\nUsage:\x1b[0m\n"
+                     "\x1b[37m     ./image_processor input.bmp output.bmp\x1b[36m -[filter1]\x1b[33m {arg1_1} {agr1_2}..\x1b[36m -[filter2]\x1b[33m {arg2_1} {arg2_2} ...\x1b[0m\n"
+                     "\x1b[33m\nExample:\n"
+                     "\x1b[37m     ./image_processor input.bmp output.bmp\x1b[36m -gs -blur\x1b[33m 4\x1b[36m -edge\x1b[33m 0.1\x1b[36m -crop\x1b[33m 1000 1000\x1b[0m\n"
+                     "\x1b[31m\n<IMPORTANT: you can use relative paths from \"/build\" directory or absolute paths>\n\x1b[33m\n"
                      "Commands:\n"
-                     "    -neg                        |  Negative filter\n"
-                     "    -gs                         |  Grayscale filter\n"
-                     "    -sharp                      |  Sharpening filter\n"
-                     "    -edge <threshold>           |  Edge detection filter\n"
-                     "    -crop <width, height>       |  Crop filter\n"
-                     "    -blur <sigma>               |  Gauss blur filter(takes a little bit too long)\n"
-                     "    -vignette <diameter, power> |  Vignette filter\n\n"
+                     "\x1b[36m    -neg                        \x1b[35m|\x1b[37m  Negative filter\n"
+                     "\x1b[36m    -gs                        \x1b[35m |\x1b[37m  Grayscale filter\n"
+                     "\x1b[36m    -sharp                     \x1b[35m |\x1b[37m  Sharpening filter\n"
+                     "\x1b[36m    -edge\x1b[33m <threshold>          \x1b[35m |\x1b[37m  Edge detection filter\n"
+                     "\x1b[36m    -crop\x1b[33m <width, height>      \x1b[35m |\x1b[37m  Crop filter\n"
+                     "\x1b[36m    -blur\x1b[33m <sigma>              \x1b[35m |\x1b[37m  Gauss blur filter(takes a little bit too long)\n"
+                     "\x1b[36m    -vignette\x1b[33m <diameter, power> \x1b[35m|\x1b[37m  Vignette filter\n\x1b[0m\n"
                   << std::endl;
         return 0;
     }
