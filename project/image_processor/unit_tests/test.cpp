@@ -142,7 +142,7 @@ int main() {
         CropFilter crop(999, 1999);
         Image image = file_worker.ReadIMG(LENNA_PATH);
         crop.Apply(image);
-        Image control_image = file_worker.ReadIMG("../project/image_processor/test_script/data/lenna_crop.bmp");
+        Image control_image = file_worker.ReadIMG("../project/image_processor/unit_tests/data/lenna_crop.bmp");
 
         assert(image == control_image);
     }
