@@ -8,7 +8,7 @@ const double PI = acos(-1.0);
 
 Image& GaussFilter::Apply(Image& image, const float sigma) {
     std::cout << "\x1b[37mApplying \x1b[36m-blur\x1b[37m filter..." << std::endl;
-    if (sigma < 0.0f) {
+    if (sigma < 0) {
         std::cout << "\x1b[31mSigma is less than 0" << std::endl;
         return image;
     }
