@@ -123,8 +123,8 @@ void FileWorker::ExportIMG(const Image &image, const std::string &path) const {
         f.write(reinterpret_cast<char *>(file_header), FILE_HEADER_SIZE);
         f.write(reinterpret_cast<char *>(info_header), INFO_HEADER_SIZE);
 
-        for (int y = 0; y < image.GetHeight(); ++y) {
-            for (int x = 0; x < image.GetWidth(); ++x) {
+        for (size_t y = 0; y < image.GetHeight(); ++y) {
+            for (size_t x = 0; x < image.GetWidth(); ++x) {
                 unsigned char red = static_cast<unsigned char>(image.GetPixel(x, y).GetRed() * COLOR_MAX);
                 unsigned char green = static_cast<unsigned char>(image.GetPixel(x, y).GetGreen() * COLOR_MAX);
                 unsigned char blue = static_cast<unsigned char>(image.GetPixel(x, y).GetBlue() * COLOR_MAX);
