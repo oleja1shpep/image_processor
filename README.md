@@ -1,5 +1,20 @@
-## Simple console app to apply filters on your .bmp images
+# Simple console app to apply filters on your .bmp images
 
+## Filters:
+
+Crop - cuts your image (from top left angle)
+
+Negative - inverses colors
+
+Grayscale - makes your image monochrome
+
+Sharp - sharpens your image
+
+Edge - finds an edge of objects
+
+Blur - applies blur on image
+
+Vignette - vignette
 
 ## How to start using:
 
